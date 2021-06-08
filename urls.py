@@ -1,11 +1,10 @@
 from django.urls import path
-from blog.views import CreateBlogView,GetMyBlogPost,UpdatePostView,DeletePost
+from comment.views import CommentList,CommentDetail
 
-app_name = 'blog'
+app_name = 'comment'
 
 urlpatterns = [
-    path('blogpost/', CreateBlogView.as_view(), name="create new blog post"),    
-    path('bloglists/<int:pk>', GetMyBlogPost.as_view(), name="list of my posts"),
-    path('updatepost/<int:pk>', UpdatePostView.as_view(), name="list of my posts"),
-    path('deletepost/<int:pk>', DeletePost.as_view(), name="delete my posts"),
+    path('comments/', CommentList.as_view(), name="create a new comments on post"),    
+    path('altercomment/<int:pk>', CommentDetail.as_view(), name="Approved the comment by Admin"),
+   
 ]

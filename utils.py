@@ -1,10 +1,11 @@
-from blog.models import BlogPost
-from blog.exceptions import BlogNotFoundException 
+from comment.models import Comment
+from comment.exceptions import CommentsNotFoundException 
+
 
 def get_object(blog_id): 
     try:
-        account=BlogPost.objects.get(pk=blog_id)			
-    except BlogPost.DoesNotExist:
-        raise BlogNotFoundException
+        account=Comment.objects.get(pk=blog_id)			
+    except Comment.DoesNotExist:
+        raise CommentsNotFoundException
     return account 
  

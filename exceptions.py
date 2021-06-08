@@ -1,6 +1,6 @@
 from rest_framework.exceptions import APIException
 
-class BlogNotFoundException(APIException):
+class CommentsNotFoundException(APIException):
     status_code=404
-    default_detail='BlogPost Not Found'
-    code='BlogPost_Not_Found'
+    default_detail='Comments Not Found'
+    code='Comments_Not_Found'
