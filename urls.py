@@ -1,16 +1,11 @@
 from django.urls import path
-from account.views import(
-    RegisterView,LoginView,ChangePasswordView,GetUser,ChangeUserDetail,DeleteUser,AccountAPIView,
-    
-)
+from blog.views import CreateBlogView,GetMyBlogPost,UpdatePostView,DeletePost
+
+app_name = 'blog'
+
 urlpatterns = [
-    path('register/', RegisterView.as_view(), name="register"),
-    path('login/', LoginView.as_view(), name="login"), 
-    path('changepassword/', ChangePasswordView.as_view(), name="change_password"),
-    path('getuser/<pk>',GetUser.as_view()),  
-    path('changeuserdetail/<pk>',ChangeUserDetail.as_view()),
-    path('deleteuser/<pk>',DeleteUser.as_view()),    
-    path('dynamicfilter/', AccountAPIView.as_view())
-
+    path('blogpost/', CreateBlogView.as_view(), name="create new blog post"),    
+    path('bloglists/<int:pk>', GetMyBlogPost.as_view(), name="list of my posts"),
+    path('updatepost/<int:pk>', UpdatePostView.as_view(), name="list of my posts"),
+    path('deletepost/<int:pk>', DeletePost.as_view(), name="delete my posts"),
 ]
-

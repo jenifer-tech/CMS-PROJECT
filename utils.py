@@ -1,9 +1,10 @@
-from account.models import Account
-from account.exceptions import AccountNotFoundException 
+from blog.models import BlogPost
+from blog.exceptions import BlogNotFoundException 
 
-def get_object(account_id): 
-		try:
-			account=Account.objects.get(pk=account_id)			
-		except Account.DoesNotExist:
-			raise AccountNotFoundException
-		return account 
+def get_object(blog_id): 
+    try:
+        account=BlogPost.objects.get(pk=blog_id)			
+    except BlogPost.DoesNotExist:
+        raise BlogNotFoundException
+    return account 
+ 
